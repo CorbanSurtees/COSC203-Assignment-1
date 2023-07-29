@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Birds of Aotearoa</title>
+</head>
+
+<body>
+    <header>
+        <h1>Birds of Aotearoa</h1>
+    </header>
+
+    <div class="information">
+        <div class="bird-filter">
+            <div class="search">
+                <p>Search</p>
+                <input id="search-input" type="text">
+            </div>
+            <div class="conservation-sort">
+            <p>Conservation Status</p>
+            <label for="conservation-status-sort"></label>
+            <select name="conservation-status-sort" id="conservation-status-sort"> 
+                <option value="All">All</option>
+                <option value="Not Threatened">Not Threatened</option>
+                <option value="Naturally Uncommon">Naturally Uncommon</option>
+                <option value="Relicit">Relicit</option>
+                <option value="Recovering">Recovering</option>
+                <option value="Declining">Declining</option>
+                <option value="Nationally Increasing">Nationally Increasing</option>
+                <option value="Nationally Vulnerable">Nationally Vulnerable</option>
+                <option value="Nationally Endangered">Nationally Endangered</option>
+                <option value="Nationally Critical">Nationally Critical</option>
+                <option value="Data Deficient">Data Deficient</option>
+            </select>
+            </div>
+            <div class="sort-by">
+                <p>Sort By</p>
+                <label for="sort-by"></label>
+                <select name="sort-by" id="sort-by">
+                    <option value="Alphabetical A-Z">Alphabetical A-Z</option>
+                    <option value="Alphabetical Z-A">Alphabetical Z-A</option>
+                    <option value="Longest to Shortest">Longest to Shortest</option>
+                    <option value="Shortest to Longest">Shortest to Longest</option>
+                    <option value="Lightest to Heaviest">Lightest to Heaviest</option>
+                    <option value="Heaviest to Lightest">Heaviest to Lightest</option>
+                </select>
+            </div>
+            <div class="filter-results">
+                <button class="filter-button" role="button">Filter Results</button>
+            </div>
+        </div>  
+        <!-- <div class="conservation-status">
+            <button class="conservation-button">Conservation Status</button>
+            <div class="conservation-levels">
+                <p>Not Threatened</p>
+                <p>Naturally Uncommon</p>
+                <p>Relicit</p>
+                <p>Recovering</p>
+                <p>Declining</p>
+                <p>Nationally Increasing</p>
+                <p>Nationally Vulnerable</p>
+                <p>Nationally Endangered</p>
+                <p>Nationally Critical</p>
+                <p>Data Deficient</p>
+            </div>
+        </div> -->
+    </div>
+
+    <main>
+        <p class="results-found-text">X Results Found</p>
+        <div class="bird-cards">
+            <div class="card">
+                <img src="data/images/Wrybill-11.jpg" alt="bellbird-4">
+                <div class="info-on-pic">
+                    <h2>Ngutu pare</h2>
+                    <p>Credit: Tony Whitehead</p>
+                    <br>
+                    <h1>Wrybill</h1>
+                </div>
+                <div class="bird-information">
+                    <div class="bird-information-titles">
+                        <b>
+                            <p>Scientific Name</p>
+                            <p>Family</p>
+                            <p>Order</p>
+                            <p>Status</p>
+                            <p>Length</p>
+                            <p>Weight</p>
+                        </b>
+                    </div>
+                    <div class="bird-information-data">
+                        <p>Anarhynchus frontalis</p>
+                        <p>Charadriidae</p>
+                        <p>Charadriiformes</p>
+                        <p>Nationally Increasing</p>
+                        <p>20.0 cm</p>
+                        <p>55.0 g</p>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </main>
+
+    <footer>
+        <p>Data liscenced from Birds New Zealand for educational user within the University of Otago</p>
+    </footer>
+</body>
+</html>
