@@ -6,6 +6,8 @@ let search_query = ''
 let conservation_status = ''
 let sort_by = ''
 
+let timeout_list = []
+
 function response_callback(response) {
     if (response.status == 200) {
         return response.json()
@@ -14,6 +16,10 @@ function response_callback(response) {
 }
 
 function data_callback(data) {
+
+    for (var i = 0; i < timeout_list.length; i++) {
+        clearTimeout(timeout_list[i]);
+    }
 
     let ordered_data = []
     let data_array = []
@@ -77,6 +83,7 @@ function data_callback(data) {
     }
 
     let results_found = 0
+    let timeout = 0
     ordered_data.forEach(bird => {
         if (bird.status === conservation_status || conservation_status === '') {
             if (bird.english_name.toLowerCase().includes(search_query) ||
@@ -86,7 +93,8 @@ function data_callback(data) {
                 bird.family.toLowerCase().includes(search_query) ||
                 JSON.stringify(bird.other_names).toLowerCase().includes(search_query)) {
                 results_found += 1
-                create_card(bird)
+                timeout_list.push(setTimeout(() => create_card(bird), timeout))
+                timeout += 250
             }
         }
     });
@@ -94,8 +102,11 @@ function data_callback(data) {
     let results_found_text = document.getElementById('results-found')
     results_found_text.innerHTML = results_found + " Results Found"
 
-
 }
+
+// const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
 function search_for(search) {
     clear_all()
