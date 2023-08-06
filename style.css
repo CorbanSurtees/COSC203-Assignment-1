@@ -219,9 +219,9 @@ footer a:visited {
     font-size: 1rem;
     box-shadow: -5px 3px 5px 5px gray;
     border-radius: 10px;
-    animation: rotate 2s;
+    animation: rotate 4s;
     animation-fill-mode: forwards;
-    animation-delay: -1s;
+    animation-delay: -2s;
 }
 
 @keyframes rotate {
@@ -231,7 +231,7 @@ footer a:visited {
     }
 
     50% {
-        transform: rotateZ(0deg) translate3d(500%, 0%, 0);
+        transform: rotateZ(0deg) translate3d(1000%, 0%, 0);
     }
 
     100% {

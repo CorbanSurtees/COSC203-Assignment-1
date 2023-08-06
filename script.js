@@ -83,6 +83,7 @@ function data_callback(data) {
     }
 
     let results_found = 0
+    let cards_per_animation = 1
     let timeout = 0
     ordered_data.forEach(bird => {
         if (bird.status === conservation_status || conservation_status === '') {
@@ -94,7 +95,11 @@ function data_callback(data) {
                 JSON.stringify(bird.other_names).toLowerCase().includes(search_query)) {
                 results_found += 1
                 timeout_list.push(setTimeout(() => create_card(bird), timeout))
-                timeout += 250
+                if (cards_per_animation == 4){
+                    cards_per_animation = 0
+                    timeout += 250
+                }
+                cards_per_animation += 1
             }
         }
     });
