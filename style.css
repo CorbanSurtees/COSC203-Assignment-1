@@ -209,10 +209,40 @@ footer a:visited {
     .bird-cards {
         grid-template-columns: repeat(2, 1fr);
     }
+    .filter-class{
+        width: 9rem;
+        height: 2rem;
+        font-size: 10px;
+    }
+    .bird-filter {
+        font-size: 10px;
+    }
+    
 }
 @media only screen and (max-width: 500px) {
     .bird-cards {
         grid-template-columns: repeat(1, 1fr);
+    }
+    .filter-class{
+        min-height: 0px;
+        min-width: 0px;
+        width: 5rem;
+        height: 1.5rem;
+        font-size: 5px;
+        text-align:center;
+        padding: 0rem;
+    }
+    .bird-filter {
+        font-size: 8px;
+    }
+    #filter-button {
+        min-height: 0px;
+        min-width: 0px;
+        width: 5rem;
+        height: 1.5rem;
+        font-size: 8px;
+        text-align:center;
+        padding: 0rem;
     }
 }
 
