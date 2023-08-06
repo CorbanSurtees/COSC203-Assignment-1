@@ -15,3 +15,5 @@ While I like the design of my site, I think I could have done a better job of st
 I attempted to make the site work on a variety of screen sizes but I am not happy with how it went, I would like it to be smoother than it is.
 ### Extra Feature
 I added an animation of the bird cards sliding into place row by row onto the screen.
+
+When searching, pressing 'Enter' will filter results. as well as changing category selection or sort selection.
