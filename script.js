@@ -97,7 +97,7 @@ function data_callback(data) {
                 timeout_list.push(setTimeout(() => create_card(bird), timeout))
                 if (cards_per_animation == 4){
                     cards_per_animation = 0
-                    timeout += 250
+                    timeout += 500
                 }
                 cards_per_animation += 1
             }
@@ -153,7 +153,7 @@ function create_card(bird) {
 
     const info_on_pic = document.createElement('div')
     info_on_pic.setAttribute('class', 'info-on-pic')
-    info_on_pic.append(create_element('h2', bird.primary_name))
+    info_on_pic.append(create_element('h3', bird.primary_name))
     info_on_pic.append(create_element('p', `Credit: ${bird.photo.credit}`))
     info_on_pic.append(document.createElement('br'))
     const bird_name = create_element('h2', bird.english_name)
