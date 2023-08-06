@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
     <title>Birds of Aotearoa</title>
 </head>
 
@@ -19,29 +20,29 @@
         <div class="bird-filter">
             <div class="search">
                 <p>Search</p>
-                <input id="search-input" type="text">
+                <input id="search-input" type="text" class="filter-class">
             </div>
             <div class="conservation-sort">
             <p>Conservation Status</p>
             <label for="conservation-status-sort"></label>
-            <select name="conservation-status-sort" id="conservation-status-sort"> 
+            <select name="conservation-status-sort" id="conservation-status-sort" class="filter-class"> 
                 <option value="All">All</option>
-                <option value="Not Threatened">Not Threatened</option>
-                <option value="Naturally Uncommon">Naturally Uncommon</option>
-                <option value="Relicit">Relicit</option>
-                <option value="Recovering">Recovering</option>
-                <option value="Declining">Declining</option>
-                <option value="Nationally Increasing">Nationally Increasing</option>
-                <option value="Nationally Vulnerable">Nationally Vulnerable</option>
-                <option value="Nationally Endangered">Nationally Endangered</option>
-                <option value="Nationally Critical">Nationally Critical</option>
-                <option value="Data Deficient">Data Deficient</option>
+                <option value="Not Threatened" id="not-threatened">Not Threatened</option>
+                <option value="Naturally Uncommon" id="naturally-uncommon">Naturally Uncommon</option>
+                <option value="Relict" id="relict">Relict</option>
+                <option value="Recovering" id="recovering">Recovering</option>
+                <option value="Declining" id="declining">Declining</option>
+                <option value="Nationally Increasing" id="nationally-increasing">Nationally Increasing</option>
+                <option value="Nationally Vulnerable" id="nationally-vunerable">Nationally Vulnerable</option>
+                <option value="Nationally Endangered" id="nationally-endangered">Nationally Endangered</option>
+                <option value="Nationally Critical" id="nationally-critical">Nationally Critical</option>
+                <option value="Data Deficient" id="data-deficient">Data Deficient</option>
             </select>
             </div>
             <div class="sort-by">
                 <p>Sort By</p>
                 <label for="sort-by"></label>
-                <select name="sort-by" id="sort-by">
+                <select name="sort-by" id="sort-by" class="filter-class">
                     <option value="Alphabetical A-Z">Alphabetical A-Z</option>
                     <option value="Alphabetical Z-A">Alphabetical Z-A</option>
                     <option value="Longest to Shortest">Longest to Shortest</option>
@@ -51,36 +52,36 @@
                 </select>
             </div>
             <div class="filter-results">
-                <button class="filter-button" role="button">Filter Results</button>
+                <button id="filter-button" role="button">Filter Results</button>
             </div>
         </div>  
         <!-- <div class="conservation-status">
             <button class="conservation-button">Conservation Status</button>
             <div class="conservation-levels">
-                <p>Not Threatened</p>
-                <p>Naturally Uncommon</p>
-                <p>Relicit</p>
-                <p>Recovering</p>
-                <p>Declining</p>
-                <p>Nationally Increasing</p>
-                <p>Nationally Vulnerable</p>
-                <p>Nationally Endangered</p>
-                <p>Nationally Critical</p>
-                <p>Data Deficient</p>
+                <p id="not-threatened">Not Threatened</p>
+                <p id="naturally-uncommon">Naturally Uncommon</p>
+                <p id="relict">Relict</p>
+                <p id="recovering">Recovering</p>
+                <p id="declining">Declining</p>
+                <p id="nationally-increasing">Nationally Increasing</p>
+                <p id="nationally-vunerable">Nationally Vulnerable</p>
+                <p id="nationally-endangered">Nationally Endangered</p>
+                <p id="nationally-critical">Nationally Critical</p>
+                <p id="data-deficient">Data Deficient</p>
             </div>
         </div> -->
     </div>
 
     <main>
-        <p class="results-found-text">X Results Found</p>
-        <div class="bird-cards">
+        <p class="results-found-text" id="results-found">X Results Found</p>
+        <div class="bird-cards" id="bird-cards">
             <div class="card">
                 <img src="data/images/Wrybill-11.jpg" alt="bellbird-4">
                 <div class="info-on-pic">
                     <h2>Ngutu pare</h2>
                     <p>Credit: Tony Whitehead</p>
                     <br>
-                    <h1>Wrybill</h1>
+                    <h1 id='name-of-bird'>Wrybill</h1>
                 </div>
                 <div class="bird-information">
                     <div class="bird-information-titles">
@@ -101,15 +102,15 @@
                         <p>20.0 cm</p>
                         <p>55.0 g</p>
                     </div>
+                    <div class="status-indicator">
+                    </div>
                 </div>
             </div>
-
-            
         </div>
     </main>
 
     <footer>
-        <p>Data liscenced from Birds New Zealand for educational user within the University of Otago</p>
+        <p>Data liscenced from <a href='https://www.birdsnz.org.nz/'>Birds New Zealand</a> for educational use within the University of Otago</p>
     </footer>
 </body>
 </html>
