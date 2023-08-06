@@ -87,12 +87,12 @@ function data_callback(data) {
     let timeout = 0
     ordered_data.forEach(bird => {
         if (bird.status === conservation_status || conservation_status === '') {
-            if (bird.english_name.toLowerCase().includes(search_query) ||
-                bird.primary_name.toLowerCase().includes(search_query) ||
-                bird.scientific_name.toLowerCase().includes(search_query) ||
-                bird.order.toLowerCase().includes(search_query) ||
-                bird.family.toLowerCase().includes(search_query) ||
-                JSON.stringify(bird.other_names).toLowerCase().includes(search_query)) {
+            if (bird.english_name.normalize("NFC").toLowerCase().includes(search_query) ||
+                bird.primary_name.normalize("NFC").toLowerCase().includes(search_query) ||
+                bird.scientific_name.normalize("NFC").toLowerCase().includes(search_query) ||
+                bird.order.normalize("NFC").toLowerCase().includes(search_query) ||
+                bird.family.normalize("NFC").toLowerCase().includes(search_query) ||
+                JSON.stringify(bird.other_names).normalize("NFC").toLowerCase().includes(search_query)) {
                 results_found += 1
                 timeout_list.push(setTimeout(() => create_card(bird), timeout))
                 if (cards_per_animation == 4){
@@ -115,8 +115,9 @@ const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
 function search_for(search) {
     clear_all()
-
-    search_query = search.toLowerCase()
+    console.log(search)
+    console.log(search.normalize("NFC").toLowerCase())
+    search_query = search.normalize("NFC").toLowerCase()
 
     let status = document.getElementById('conservation-status-sort')
     conservation_status = status.value
@@ -165,47 +166,37 @@ function create_card(bird) {
 
     const bird_information_titles = document.createElement('div')
     bird_information_titles.setAttribute('class', 'bird-information-titles')
-    bird_information_titles.innerHTML = `
-    <table class="card_text">
-        <tr>
-            <td><b>English Name:</b></td>
-            <td>${bird.english_name}</td>
-        </tr>
-        <tr>
-            <td><b>Scientific Name:</b></td>
-            <td>${bird.scientific_name}</td>
-        </tr>
-        <tr>
-            <td><b>Family:</b></td>
-            <td>${bird.family}</td>
-        </tr>
-        <tr>
-            <td><b>Order:</b></td>
-            <td>${bird.order}</td>
-        </tr>
-        <tr>
-            <td><b>Status:</b></td>
-            <td>${bird.status}</td>
-        </tr>
-        <tr>
-            <td><b>Length:</b></td>
-            <td>${bird.size.length.value} ${bird.size.length.units}</td>
-        </tr>
-        <tr>
-            <td><b>Weight:</b></td>
-            <td>${bird.size.weight.value} ${bird.size.weight.units}</td>
-        </tr>
-    </table>
-    `;
 
+    const bird_information_table = document.createElement('table')
+    bird_information_table.setAttribute('class', 'card_text')
+
+    bird_information_table.append(create_table_row('English Name:', bird.english_name))
+    bird_information_table.append(create_table_row('Scientific Name:', bird.scientific_name))
+    bird_information_table.append(create_table_row('Family:', bird.family))
+    bird_information_table.append(create_table_row('Order:', bird.order))
+    bird_information_table.append(create_table_row('Status:', bird.status))
+    bird_information_table.append(create_table_row('Length:', bird.size.length.value + bird.size.length.units))
+    bird_information_table.append(create_table_row('Weight:', bird.size.weight.value + bird.size.weight.units))
+    
+    bird_information_titles.append(bird_information_table)
+    
     const bird_information = document.createElement('div')
     bird_information.setAttribute('class', 'bird-information')
     bird_information.append(bird_information_titles)
-    // bird_information.append(bird_information_data)
 
     new_card.append(bird_information)
 
     document.querySelector('.bird-cards').append(new_card)
+}
+
+function create_table_row(label, data){
+    const row = create_element('tr')
+    let label_text = create_element('b', label)
+    let label_element = create_element('td')
+    label_element.append(label_text)
+    row.append(label_element)
+    row.append(create_element('td', data))
+    return row
 }
 
 function create_element(type, content) {
@@ -227,16 +218,9 @@ function extractBirdNameFromImagePath(imagePath) {
 }
 
 const clear_all = () => {
-    console.log('clearing')
     let cards = document.getElementById('bird-cards')
     cards.innerHTML = ''
-    // console.log(cards.innerHTML)
 }
-
-function testing() {
-    console.log("this thing is working!!!")
-}
-
 
 search_for('')
 
@@ -248,7 +232,6 @@ btn.addEventListener("click", function () { search_for(search.value); });
 
 search.addEventListener("keypress", function (event) {
     // If the user presses the "Enter" key on the keyboard
-    console.log(event)
     if (event.key === "Enter") {
         // Cancel the default action, if needed
         event.preventDefault();

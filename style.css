@@ -1,6 +1,5 @@
 body {
     font-family: 'Roboto', sans-serif;
-    position: block;
 }
 
 header {
@@ -34,7 +33,7 @@ footer a:link {
 }
 
 footer p a:hover {
-    color: pink;
+    color: rgb(255, 137, 157);
 }
 
 footer a:visited {
@@ -49,15 +48,6 @@ footer a:visited {
     margin: 1rem auto;
 }
 
-.search {
-    /* border: 2px solid green; */
-    display: inline-block;
-}
-
-.conservation-sort {
-    /* border: 2px solid green; */
-    display: inline-block;
-}
 
 .conservation-sort #not-threatened {
     background-color: #02a028;
@@ -99,77 +89,23 @@ footer a:visited {
     background-color: black;
 }
 
-.sort-by {
-    /* border: 2px solid green; */
-    display: inline-block;
-}
-
 .results-found-text {
     margin-top: 2rem;
 }
 
-
-#filter-button {
-    background-color: #222;
-    border-radius: 4px;
-    border-style: none;
-    box-sizing: border-box;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-family: "Farfetch Basis", "Helvetica Neue", Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.5;
-    margin: 0;
-    max-width: none;
-    min-height: 44px;
-    min-width: 10px;
-    outline: none;
-    overflow: hidden;
-    padding: 9px 20px 8px;
-    position: relative;
-    text-align: center;
-    text-transform: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    width: 100%;
-}
-
-#filter-button:hover,
-#filter-button:focus {
+#filter-button:hover {
     opacity: .75;
 }
 
 .filter-class {
-    background-color: #222;
+    background-color: #323232;
     color: #fff;
     border-radius: 4px;
     border-style: none;
-    box-sizing: border-box;
-    /* width: 150%; */
-    height: 2rem;
-    font-family: "Farfetch Basis", "Helvetica Neue", Arial, sans-serif;
     font-size: 16px;
-    font-weight: 700;
-    line-height: 1.5;
-    margin: 0;
-    max-width: none;
-    min-height: 44px;
-    min-width: 10px;
-    outline: none;
-    overflow: hidden;
-    padding: 9px 20px 8px;
-    position: relative;
+    padding: 10px;
     text-align: center;
-    text-transform: none;
-    user-select: none;
-}
-
-.filter-class p {
-    margin: 0px !important;
-    color: red;
+    box-shadow: -3px 2px 3px 3px gray;
 }
 
 #search-input {
@@ -178,17 +114,9 @@ footer a:visited {
     color: black;
 }
 
-/* .bird-cards {
-    display: inline-block;
-    align-items: center;
-    justify-content: center;
-    margin: 2vw;
-} */
-
 .bird-cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    /* padding: 3rem, 3rem; */
     gap: 30px;
     margin: 1rem;
     margin-top: 2rem;
@@ -198,8 +126,6 @@ footer a:visited {
 }
 
 .bird-cards table {
-    /* display: inline-flex; */
-    /* border: 1px solid; */
     border-spacing: 30px 0px;
     border-collapse: separate;
     width: 100%;
@@ -212,9 +138,7 @@ footer a:visited {
 
 .card {
     display: inline-block;
-    /* width: 20vw; */
     height: 375px;
-    /* margin: 20px; */
     background-color: white;
     font-size: 1rem;
     box-shadow: -5px 3px 5px 5px gray;
@@ -227,15 +151,15 @@ footer a:visited {
 @keyframes rotate {
     
     0% {
-        transform: rotate(0deg), translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
     }
 
     50% {
-        transform: rotateZ(0deg) translate3d(1000%, 0%, 0);
+        transform: translate3d(1000%, 0%, 0);
     }
 
     100% {
-        transform: rotateZ(0deg) translate3d(0%, 0, 0);
+        transform: translate3d(0, 0, 0);
     }
 }
 
@@ -261,15 +185,25 @@ footer a:visited {
         width: 9rem;
         height: 2rem;
         font-size: 10px;
+        text-align: start
     }
 
     .bird-filter {
+        font-size: 12px;
+    }
+    #filter-button {
+        min-height: 0px;
+        min-width: 0px;
+        width: 8rem;
+        height: 2rem;
         font-size: 10px;
+        text-align: center;
+        padding: 0rem;
     }
 
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 550px) {
     .bird-cards {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -311,10 +245,6 @@ footer a:visited {
     bottom: 15%;
 }
 
-.info-on-pic h1 {
-    color: black;
-}
-
 #name-of-bird {
     position: absolute;
     color: black;
@@ -331,57 +261,4 @@ footer a:visited {
     line-height: 50%;
     bottom: 13%;
     font-size: xx-small;
-}
-
-.bird-information-titles {
-    text-indent: 5%;
-    width: 100%;
-    height: 10%;
-}
-
-.bird-information-data {
-    border: 1px solid blue;
-    width: 80%;
-}
-
-.status-indicator {
-    position: absolute;
-    width: 2rem;
-    height: 2rem;
-    background-color: orange;
-    border: 2px solid white;
-    border-radius: 50%;
-    right: 10%;
-    bottom: 120%;
-}
-
-
-
-.conservation-levels {
-    display: none;
-    position: fixed;
-}
-
-.conservation-status {
-    border: 2px solid blue;
-    background-color: white;
-    position: absolute;
-    display: inline-block;
-    z-index: 100;
-}
-
-.conservation-status:hover .conservation-levels {
-    display: contents;
-}
-
-
-
-table,
-th,
-td {
-    /* display: inline-flex; */
-    /* border: 1px solid; */
-    /* border-spacing: 30px 5px;
-    border-collapse:separate;
-    line-height: 0.5rem; */
 }
