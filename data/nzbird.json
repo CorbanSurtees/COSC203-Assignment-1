@@ -25,6 +25,33 @@
         }
     },
     {
+        "primary_name": "Kenny",
+        "english_name": "Kenny",
+        "scientific_name": "Kenny",
+        "order": "Kenny",
+        "family": "kenny",
+        "other_names": [
+            "Kenton",
+            "Top-G",
+            "Legend"
+        ],
+        "status": "Nationally Critical",
+        "photo": {
+            "credit": "Kenny",
+            "source": "data/images/Kenny.png"
+        },
+        "size": {
+            "length": {
+                "value": 200,
+                "units": "cm"
+            },
+            "weight": {
+                "value": 80000,
+                "units": "g"
+            }
+        }
+    },
+    {
         "primary_name": "Hoiho",
         "english_name": "Yellow-eyed penguin",
         "scientific_name": "Megadyptes antipodes",
